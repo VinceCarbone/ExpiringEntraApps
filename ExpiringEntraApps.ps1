@@ -1,8 +1,15 @@
-﻿# Defines the Tenant and App registration details
-$tenantid = ""
-$clientid = ""
-$CertificateThumbprint = ""
+﻿# Defines the Tenant, App, and cert
+param (    
+    [Parameter(Mandatory=$true)][string]$tenantid,
+    [Parameter(Mandatory=$true)][string]$clientid,
+    [Parameter(Mandatory=$true)][string]$CertificateThumbprint
+)
 
+# Checks to see if the certificate specified is valid
+If(-not(Test-Path -Path "Cert:\CurrentUser\My\$CertificateThumbprint")){
+    Write-Host "Unable to find a certificate with the following thumbprint: $CertificateThumbprint" -ForegroundColor Red
+    exit
+}
 
 # Connects to Microsoft Graph
 Connect-MgGraph -TenantId $tenantid -ClientId $clientid -CertificateThumbprint (Get-Item -Path "Cert:\CurrentUser\My\$CertificateThumbprint").Thumbprint
