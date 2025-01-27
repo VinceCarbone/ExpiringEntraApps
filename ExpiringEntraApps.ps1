@@ -2,7 +2,8 @@
 param (    
     [Parameter(Mandatory=$true)][string]$tenantid,
     [Parameter(Mandatory=$true)][string]$clientid,
-    [Parameter(Mandatory=$true)][string]$CertificateThumbprint
+    [Parameter(Mandatory=$true)][string]$CertificateThumbprint,
+    [Parameter(Mandatory=$true)][string]$expiration
 )
 
 # Checks to see if the certificate specified is valid
@@ -112,7 +113,6 @@ $Results += @(
 )
 
 # Narrows the list down to just entries that have expirations in the next X number of days
-$expiration = 45
 $expiringsoon = $results | Where-Object EnterpriseServicePrincipalType -ne "ManagedIdentity" | Where-Object {($_.EnterpriseCertificateExpiration -ne $null -and $_.EnterpriseCertificateExpiration -lt (get-date).adddays($expiration)) -or ($_.AppClientSecretExpiration -ne $null -and $_.AppClientSecretExpiration -lt (get-date).adddays($expiration)) -or ($_.AppCertificateExpiration -ne $null -and $_.AppCertificateExpiration -lt (get-date).adddays($expiration))}
 
 # Exports the results
