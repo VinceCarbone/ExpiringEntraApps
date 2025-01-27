@@ -13,5 +13,5 @@ You'd run this by simply calling the script like so, obviously subsituting your 
 ```
 
 Two files will be output onto your desktop
-EntraApps_All_<date>.csv - contains all Enterprise Apps and App Registrations
-EntraApps_ExpiringSoon_<date>.csv - only contains apps with expirations in the next X amount of days (based on the Expiration your provided when you ran the script)
+1. EntraApps_All_<date>.csv - contains all Enterprise Apps and App Registrations
+2. EntraApps_ExpiringSoon_<date>.csv - only contains apps with expirations in the next X amount of days (based on the Expiration your provided when you ran the script)
