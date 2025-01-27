@@ -3,7 +3,7 @@ param (
     [Parameter(Mandatory=$true)][string]$tenantid,
     [Parameter(Mandatory=$true)][string]$clientid,
     [Parameter(Mandatory=$true)][string]$CertificateThumbprint,
-    [Parameter(Mandatory=$true)][string]$expiration
+    [Parameter(Mandatory=$true)][Int]$expiration
 )
 
 # Checks to see if the certificate specified is valid
