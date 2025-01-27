@@ -8,7 +8,7 @@ A few requirements
 
 You'd run this by simply calling the script like so, obviously subsituting your own information
 
-.\ExpiringEntraApps.ps1 -TenantID "whatever.onmicrosoft.com" -ClientID "12345678-1234-5678-1234-123456789012" -CertificateThumbprint "ABCDEFGHIJ1234567890ABCDEFGHIJ" -Expiration 45
+```.\ExpiringEntraApps.ps1 -TenantID "whatever.onmicrosoft.com" -ClientID "12345678-1234-5678-1234-123456789012" -CertificateThumbprint "ABCDEFGHIJ1234567890ABCDEFGHIJ" -Expiration 45```
 
 Two files will be output onto your desktop
 EntraApps_All_<date>.csv - contains all Enterprise Apps and App Registrations
